@@ -1,6 +1,43 @@
 import { useLoaderData, useParams } from "react-router-dom"
+import { getFromLocalStorage, saveToLocalStorage } from "../../utils/localStorage";
 
 const BookDetails = () => {
+
+    const handleReadList = () => {
+        // const getData = getWishFromLocalStorage();
+        // console.log(getData)
+        // const newData = getData.filter(item => item.id !== idInt);
+        // console.log(newData)
+        // saveWishToLocalStorage(newData)
+        // const newData = getData.pop(filteredData);
+
+        // console.log(filteredData)
+
+
+        // console.log(getData)
+        // removeFromLocalStorage(singleBook)
+        // for (const singleData of getData) {
+        //     console.log(singleData)
+        // }
+        saveToLocalStorage(singleBook);
+    }
+    const handleWishlist = () => {
+        const getData = getFromLocalStorage();
+        if (getData.length > 0) {
+            const findBook = getData.find(item => item.id == idInt)
+            console.log(findBook)
+            const bookName = findBook.bookName;
+            for (const id of getData) {
+                if (bookName == id.bookName) {
+                    alert('already added to read books list')
+                }
+            }
+        }
+        if(getData.length == 0) {
+            alert('added to wishlist')
+        }
+    }
+
     const allBooks = useLoaderData();
     const { id } = useParams();
     const idInt = parseInt(id)
@@ -19,16 +56,16 @@ const BookDetails = () => {
                         <p className="my-3 font-medium">{category}</p>
                     </div>
                     <p className="leading-relaxed my-4"> <span className="text-xl font-bold">Review:</span> {review}</p>
-                    <p className="flex gap-3 items-center">
+                    <div className="flex gap-3 items-center">
                         <span className="font-worksans font-medium mt-2">Tags</span>
                         {tags.map((tag, index) => (<div className="bg-[#23BE0A33] p-2 rounded-xl text-[#23BE0A] mt-3" key={index}> #{tag}</div>))}
-                    </p>
+                    </div>
                     <div className='border-solid border-b-2 border-[#13131326] mt-4'></div>
                     <div>
 
                         <div className="overflow-x-auto">
                             <table className="table">
-                               
+
                                 <tbody>
                                     {/* row 1 */}
                                     <tr>
@@ -51,8 +88,8 @@ const BookDetails = () => {
                     </div>
 
                     <div className="flex gap-5">
-                        <button className="btn">Read</button>
-                        <button className="btn bg-[#50B1C9]">Wishlist</button>
+                        <button className="btn" onClick={handleReadList}>Read</button>
+                        <button className="btn bg-[#50B1C9]" onClick={handleWishlist}>Wishlist</button>
                     </div>
 
                 </div>
