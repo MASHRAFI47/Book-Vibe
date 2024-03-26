@@ -1,0 +1,104 @@
+[
+    {
+        "id": 1,
+        "bookName": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "image": "https://i.ibb.co/N7K0Wbm/pngwing-1.png",
+        "review": "A timeless classic that delves deep into the decadence and disillusionment of the Jazz Age.",
+        "totalPages": 180,
+        "rating": 4.5,
+        "category": "Fiction",
+        "tags": [
+            "Romance",
+            "Drama"
+        ],
+        "publisher": "Scribner",
+        "yearOfPublishing": 1925,
+        "price": 12.99
+    },
+    {
+        "id": 2,
+        "bookName": "1984",
+        "author": "George Orwell",
+        "image": "https://i.ibb.co/vLBbFQF/book2.png",
+        "review": "A haunting portrayal of a dystopian society, serving as a cautionary tale against totalitarianism.",
+        "totalPages": 328,
+        "rating": 4.7,
+        "category": "Fiction",
+        "tags": [
+            "Dystopian",
+            "Political"
+        ],
+        "publisher": "Secker & Warburg",
+        "yearOfPublishing": 1949,
+        "price": 10.99
+    },
+    {
+        "id": 3,
+        "bookName": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "image": "https://i.ibb.co/bzQfpDF/book3.png",
+        "review": "A poignant exploration of racial injustice and moral growth through the eyes of a child.",
+        "totalPages": 281,
+        "rating": 4.8,
+        "category": "Fiction",
+        "tags": [
+            "Social Justice",
+            "Coming-of-Age"
+        ],
+        "publisher": "J. B. Lippincott & Co.",
+        "yearOfPublishing": 1960,
+        "price": 11.50
+    },
+    {
+        "id": 4,
+        "bookName": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "image": "https://i.ibb.co/hY9Xvf3/book4.png",
+        "review": "An iconic novel capturing the angst and alienation of adolescence with raw honesty.",
+        "totalPages": 277,
+        "rating": 4.4,
+        "category": "Fiction",
+        "tags": [
+            "Coming-of-Age",
+            "American Literature"
+        ],
+        "publisher": "Little, Brown and Company",
+        "yearOfPublishing": 1951,
+        "price": 9.99
+    },
+    {
+        "id": 5,
+        "bookName": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "image": "https://i.ibb.co/4jY27Q4/book5.png",
+        "review": "A witty and insightful novel that explores love, marriage, and social conventions in Regency-era England.",
+        "totalPages": 432,
+        "rating": 4.6,
+        "category": "Fiction",
+        "tags": [
+            "Romance",
+            "Satire"
+        ],
+        "publisher": "T. Egerton",
+        "yearOfPublishing": 1813,
+        "price": 8.50
+    },
+    {
+        "id": 6,
+        "bookName": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "image": "https://i.ibb.co/HTmTLdd/book6.png",
+        "review": "A captivating adventure filled with magic, dragons, and memorable characters, set in Tolkien's richly imagined Middle-earth.",
+        "totalPages": 310,
+        "rating": 4.9,
+        "category": "Fantasy",
+        "tags": [
+            "Adventure",
+            "Epic"
+        ],
+        "publisher": "George Allen & Unwin",
+        "yearOfPublishing": 1937,
+        "price": 14.99
+    }
+]
