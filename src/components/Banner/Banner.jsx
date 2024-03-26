@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import book1 from '../../assets/images/book1.png'
 
 const Banner = () => {
@@ -6,7 +7,7 @@ const Banner = () => {
             <div className='flex justify-around items-center'>
                 <div className='ml-4 md:ml-0'>
                     <h1 className='text-3xl md:text-5xl font-bold font-playfair mb-3'>Books to freshen up <br /> your bookshelf</h1>
-                    <button className="btn btn-success text-white mt-4">View The List</button>
+                    <Link to={'/listed-books'} className="btn btn-success text-white mt-4">View The List</Link>
                 </div>
                 <div className='py-2'>
                     <img src={book1} alt="" />
