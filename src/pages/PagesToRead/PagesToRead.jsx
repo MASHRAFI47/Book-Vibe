@@ -1,5 +1,7 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer, Tooltip } from 'recharts';
 import { getFromLocalStorage } from '../../utils/localStorage';
+
+import PropTypes from 'prop-types';
 
 const readBook = getFromLocalStorage()
 
@@ -9,7 +11,7 @@ let data = []
 for (const page of readBook) {
   let usingData = {
     name: page.bookName,
-    uv: page.totalPages
+    pages: page.totalPages
   }
   data.push(usingData)
 }
@@ -49,7 +51,8 @@ export default function App() {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+          <Tooltip />
+          <Bar dataKey="pages" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}
@@ -57,37 +60,15 @@ export default function App() {
         </BarChart>
       </ResponsiveContainer>
     </div>
-
   );
 }
 
 
-// export default function PagesToRead() {
-//   return (
-//     <BarChart
-//       width={500}
-//       height={300}
-//       data={data}
-//       margin={{
-//         top: 20,
-//         right: 30,
-//         left: 20,
-//         bottom: 5,
-//       }}
-//     >
-//       <CartesianGrid strokeDasharray="3 3" />
-//       <XAxis dataKey="name" />
-//       <YAxis />
-//       {
-//         readBook.map((read, index) => {
-//           return <Bar key={index} dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-//           {data.map((entry, index) => (
-//             <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-//           ))}
-//         </Bar>
-//         }
-//         )
-//       }
-//     </BarChart>
-//   );
-// }
+TriangleBar.propTypes = {
+  fill: PropTypes.string,
+  x: PropTypes.number,
+  y: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
+}
+
