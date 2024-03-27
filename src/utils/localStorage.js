@@ -1,19 +1,19 @@
-// export const saveWishToLocalStorage = (data) => {
-//     const anotherData = JSON.parse(localStorage.getItem('wishlist')) || [];
-//     const existsWish = anotherData.find(item => item.id == data.id)
-//     if (!existsWish) {
-//         anotherData.push(data);
-//         localStorage.setItem('wishlist', JSON.stringify(anotherData));
-//         alert('added successfully')
-//     } else {
-//         alert('already added')
-//     }
-// }
+export const saveWishToLocalStorage = (data) => {
+    const anotherData = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const existsWish = anotherData.find(item => item.id == data.id)
+    if (!existsWish) {
+        anotherData.push(data);
+        localStorage.setItem('wishlist', JSON.stringify(anotherData));
+        alert('added successfully')
+    } else {
+        // alert('already added to read books list')
+    }
+}
 
-// export const getWishFromLocalStorage = () => {
-//     const data = JSON.parse(localStorage.getItem('wishlist')) || [];
-//     return data;
-// }
+export const getWishFromLocalStorage = () => {
+    const data = JSON.parse(localStorage.getItem('wishlist')) || [];
+    return data;
+}
 
 // export const removeFromLocalStorage = (data) => {
 //     let bookItem = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -52,7 +52,6 @@ export const saveToLocalStorage = (data) => {
     }
 
 }
-
 
 export const getFromLocalStorage = () => {
     const data = JSON.parse(localStorage.getItem('read')) || [];

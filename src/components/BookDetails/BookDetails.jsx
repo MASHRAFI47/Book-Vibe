@@ -1,41 +1,35 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { getFromLocalStorage, saveToLocalStorage } from "../../utils/localStorage";
+import { getFromLocalStorage, getWishFromLocalStorage, saveToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
 
 const BookDetails = () => {
 
+    const wishList = getWishFromLocalStorage();
+    const readList = getFromLocalStorage();
+    console.log(wishList, readList)
+
     const handleReadList = () => {
-        // const getData = getWishFromLocalStorage();
-        // console.log(getData)
-        // const newData = getData.filter(item => item.id !== idInt);
-        // console.log(newData)
-        // saveWishToLocalStorage(newData)
-        // const newData = getData.pop(filteredData);
 
-        // console.log(filteredData)
-
-
-        // console.log(getData)
-        // removeFromLocalStorage(singleBook)
-        // for (const singleData of getData) {
-        //     console.log(singleData)
         // }
         saveToLocalStorage(singleBook);
+
+        // const otherWishes = wishList.filter(item => item.id != idInt)
+        // console.log(otherWishes)
+        // saveWishToLocalStorage(otherWishes)
+
+
     }
     const handleWishlist = () => {
-        const getData = getFromLocalStorage();
+        const getData = getWishFromLocalStorage(); // getfrom
         if (getData.length > 0) {
             const findBook = getData.find(item => item.id == idInt)
-            console.log(findBook)
             const bookName = findBook.bookName;
             for (const id of getData) {
                 if (bookName == id.bookName) {
-                    alert('already added to read books list')
+                    alert('already added')
                 }
             }
         }
-        if(getData.length == 0) {
-            alert('added to wishlist')
-        }
+        saveWishToLocalStorage(singleBook)
     }
 
     const allBooks = useLoaderData();
@@ -43,6 +37,17 @@ const BookDetails = () => {
     const idInt = parseInt(id)
     const singleBook = allBooks.find(book => book.id == idInt);
     const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing } = singleBook
+
+
+    //verify
+    // if (readList.length > 0) {
+    //     const readItem = readList.find(item => item.id == idInt)
+    //     const wishItem = wishList.find(item => item.id == idInt)
+    //     if (wishItem.bookName == readItem.bookName) {
+    //         console.log('milse')
+    //     }
+    // }
+
     return (
         <div className="mt-10">
             <div className="flex flex-col md:flex-row">
