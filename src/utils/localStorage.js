@@ -58,6 +58,21 @@
 //     return data
 // }
 
+// export const saveWishToLocalStorage = (data) => {
+//     let saveWish = getWishFromLocalStorage();
+//     const isExist = saveWish.find(w => w.id == data.id);
+//     console.log(isExist)
+//     if (isExist) {
+//         toast('already exists wish')
+//     }
+//     else {
+//         saveWish.push(data);
+//         localStorage.setItem('wishlist', JSON.stringify(saveWish));
+//         toast('success wish')
+//     }
+// }
+
+
 
 
 
@@ -85,14 +100,13 @@ export const getWishFromLocalStorage = () => {
 export const saveWishToLocalStorage = (data) => {
     let saveWish = getWishFromLocalStorage();
     const isExist = saveWish.find(w => w.id == data.id);
-    console.log(isExist)
     if (isExist) {
-        toast('already exists')
+        toast('already exists wish')
     }
     else {
         saveWish.push(data);
         localStorage.setItem('wishlist', JSON.stringify(saveWish));
-        toast('success')
+        toast('success wish')
     }
 }
 
@@ -100,7 +114,7 @@ export const deleteWishFromLocalStorage = (id) => {
     let wishlist = getWishFromLocalStorage();
     const remaining = wishlist.filter(d => d.id != id.id);
     localStorage.setItem('wishlist', JSON.stringify(remaining));
-    toast('deleted')
+    toast('deleted wish')
 }
 
 
@@ -115,24 +129,24 @@ export const getReadFromLocalStorage = () => {
 }
 
 export const saveReadToLocalStorage = (data) => {
-    let saveRead = getWishFromLocalStorage();
+    let saveRead = getReadFromLocalStorage();
     const isExist = saveRead.find(w => w.id == data.id);
     console.log(isExist)
     if (isExist) {
-        toast('already exists')
+        toast('already exists read')
     }
     else {
         saveRead.push(data);
         localStorage.setItem('readlist', JSON.stringify(saveRead));
-        toast('success')
+        toast('success read')
     }
 }
 
 export const deleteReadFromLocalStorage = (id) => {
-    let readlist = getWishFromLocalStorage();
+    let readlist = getReadFromLocalStorage();
     const remaining = readlist.filter(d => d.id != id.id);
     localStorage.setItem('wishlist', JSON.stringify(remaining));
-    toast('deleted')
+    toast('deleted read')
 }
 
 

@@ -1,55 +1,105 @@
-import {  useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useLoaderData } from "react-router-dom";
-// import { getWishFromLocalStorage } from "../../utils/localStorage";
+import { getWishFromLocalStorage } from "../../utils/localStorage";
 
 import { CiLocationOn } from "react-icons/ci";
 import { LuUsers2 } from "react-icons/lu";
 import { MdOutlineInsertPageBreak } from "react-icons/md";
+import { getReadFromLocalStorage } from "../../utils/localStorage";
+import { toast } from "react-toastify";
 
 
 
 const ListedBooks = () => {
-  const [readBooks, setReadBooks] = useState([])
 
   const allBooks = useLoaderData()
-
-  // useEffect(() => {
-  //   const storedLocalData = getFromLocalStorage();
-
-  //   if (allBooks.length > 0) {
-  //     const booksApplied = [];
-  //     for (const id of storedLocalData) {
-  //       const bookId = id.id;
-  //       const book = allBooks.find(book => book.id == bookId)
-  //       if (book) {
-  //         booksApplied.push(book)
-  //       }
-  //     }
-  //     setReadBooks(booksApplied)
-  //   }
-  // }, [allBooks]);
+  const localReadData = getReadFromLocalStorage()
 
 
+  const [readBooks, setReadBooks] = useState([])
+ 
+  const [readBookLists, setReadBookLists] = useState(localReadData)
+  console.log(readBookLists)
 
-  // const [wishBooks, setWishBooks] = useState([])
 
-  // useEffect(() => {
-  //   const storedWishData = getWishFromLocalStorage();
-  //   if (allBooks.length > 0) {
-  //     let wishApplied = [];
-  //     for (const id of storedWishData) {
-  //       const wishId = id.id;
-  //       const wishedBook = allBooks.find(book => book.id == wishId)
-  //       if (wishedBook) {
-  //         wishApplied.push(wishedBook);
-  //       }
-  //       setWishBooks(wishApplied)
-  //     }
-  //   }
-  // }, []);
+  // test
+  const[booking, setBooking] = useState(localReadData)
+  useEffect(() => {
+    fetch('books.json')
+    .then(res => res.json())
+    .then(data => setBooking(data))
+  }, []);
+
+  useEffect(() => {
+    const storedLocalData = getReadFromLocalStorage();
+
+    if (allBooks.length > 0) {
+      let booksApplied = [];
+      for (const id of storedLocalData) {
+        const bookId = id.id;
+        const book = allBooks.find(book => book.id == bookId)
+        if (book) {
+          booksApplied.push(book)
+        }
+      }
+      setReadBooks(booksApplied)
+    }
+  }, [allBooks]);
+
+
+  const handleSort = (filter) => {
+    if (filter == 'rating') {
+      toast('rating')
+
+      readBookLists.sort((a, b) => 
+        b.rating - a.rating
+      )
+      setReadBookLists(readBookLists)
+
+      // test
+      let data = [...booking];
+      if(data.length > 0) {
+        let result = data.sort((a,b) => a.bookName.localeCompare(b.bookName))
+        setBooking(result)
+      }
+      
+    }
+    else if (filter == 'number-of-pages') {
+      toast('number of pages')
+    }
+    else if (filter == 'published-year') {
+      toast('published year')
+    }
+  }
+
+  
+
+
+
+  const [wishBooks, setWishBooks] = useState([])
+
+  useEffect(() => {
+    const storedWishData = getWishFromLocalStorage();
+    if (allBooks.length > 0) {
+      let wishApplied = [];
+      for (const id of storedWishData) {
+        const wishId = id.id;
+        const wishedBook = allBooks.find(book => book.id == wishId)
+        if (wishedBook) {
+          wishApplied.push(wishedBook);
+        }
+        setWishBooks(wishApplied)
+      }
+    }
+  }, [allBooks]);
 
   return (
     <div>
+
+      <div>
+        
+      </div>
+
       <div className="text-center text-3xl font-bold bg-[#1313130D] py-4 rounded-xl">
         <h1>Books</h1>
       </div>
@@ -59,8 +109,9 @@ const ListedBooks = () => {
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn m-1 btn-success text-white">Sort By</div>
           <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Item 1</a></li>
-            <li><a>Item 2</a></li>
+            <li onClick={() => handleSort('rating')}><a>Rating</a></li>
+            <li onClick={() => handleSort('number-of-pages')}><a>Number of Pages</a></li>
+            <li onClick={() => handleSort('published-year')}><a>Published Year</a></li>
           </ul>
         </div>
       </div>
@@ -70,7 +121,7 @@ const ListedBooks = () => {
         <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
           <div>
-            {readBooks.map((readBook, index) => (
+            {readBookLists.map((readBook, index) => (
               <div key={index} className="mt-0 md:mt-6 border p-0 md:p-3 rounded-xl">
                 <div className="flex flex-col md:flex-row ml-5 md:ml-0">
                   <div className="w-full md:w-1/3 p-3 md:p-0">

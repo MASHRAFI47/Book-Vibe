@@ -1,22 +1,24 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { deleteWishFromLocalStorage, getWishFromLocalStorage, saveReadToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
+import { deleteWishFromLocalStorage, getReadFromLocalStorage, saveReadToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
 
 const BookDetails = () => {
 
-    const wishList = getWishFromLocalStorage();
-    // const readList = getFromLocalStorage();
-    // console.log(wishList, readList)
+    const readList = getReadFromLocalStorage()
+    console.log(readList)
+
 
     const handleReadList = (book) => {
         deleteWishFromLocalStorage(book)
         saveReadToLocalStorage(book)
+
+
         // }
         // saveToLocalStorage(singleBook);
 
         // const otherWishes = wishList.filter(item => item.id != idInt)
         // console.log(otherWishes)
         // saveWishToLocalStorage(otherWishes)
-        
+
 
     }
     const handleWishlist = (book) => {
@@ -30,7 +32,9 @@ const BookDetails = () => {
         //         }
         //     }
         // }
+
         saveWishToLocalStorage(book)
+
     }
 
     const allBooks = useLoaderData();

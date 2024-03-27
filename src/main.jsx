@@ -9,7 +9,7 @@ import {
 import Root from '../src/components/Root/Root'
 import Home from './pages/Home/Home';
 import ListedBooks from './pages/ListedBooks/ListedBooks';
-// import PagesToRead from './pages/PagesToRead/PagesToRead';
+import PagesToRead from './pages/PagesToRead/PagesToRead';
 import BookDetails from './components/BookDetails/BookDetails';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/pages-to-read',
-        // element: <PagesToRead />
+        element: <PagesToRead />
       },
       {
         path:'/book-details/:id',
