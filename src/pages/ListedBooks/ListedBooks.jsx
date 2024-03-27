@@ -66,9 +66,32 @@ const ListedBooks = () => {
     }
     else if (filter == 'number-of-pages') {
       toast('number of pages')
+      readBookLists.sort((a, b) => 
+        b.totalPages - a.totalPages
+      )
+      setReadBookLists(readBookLists)
+
+      // test
+      let data = [...booking];
+      if(data.length > 0) {
+        let result = data.sort((a,b) => a.bookName.localeCompare(b.bookName))
+        setBooking(result)
+      }
+
     }
     else if (filter == 'published-year') {
       toast('published year')
+      readBookLists.sort((a, b) => 
+        b.yearOfPublishing - a.yearOfPublishing
+      )
+      setReadBookLists(readBookLists)
+
+      // test
+      let data = [...booking];
+      if(data.length > 0) {
+        let result = data.sort((a,b) => a.bookName.localeCompare(b.bookName))
+        setBooking(result)
+      }
     }
   }
 
@@ -95,10 +118,6 @@ const ListedBooks = () => {
 
   return (
     <div>
-
-      <div>
-        
-      </div>
 
       <div className="text-center text-3xl font-bold bg-[#1313130D] py-4 rounded-xl">
         <h1>Books</h1>
