@@ -1,24 +1,25 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { getFromLocalStorage, getWishFromLocalStorage, saveToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
+import { deleteWishFromLocalStorage, getWishFromLocalStorage, saveReadToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
 
 const BookDetails = () => {
 
     const wishList = getWishFromLocalStorage();
-    const readList = getFromLocalStorage();
-    console.log(wishList, readList)
+    // const readList = getFromLocalStorage();
+    // console.log(wishList, readList)
 
-    const handleReadList = () => {
-
+    const handleReadList = (book) => {
+        deleteWishFromLocalStorage(book)
+        saveReadToLocalStorage(book)
         // }
-        saveToLocalStorage(singleBook);
+        // saveToLocalStorage(singleBook);
 
         // const otherWishes = wishList.filter(item => item.id != idInt)
         // console.log(otherWishes)
         // saveWishToLocalStorage(otherWishes)
-
+        
 
     }
-    const handleWishlist = () => {
+    const handleWishlist = (book) => {
         // const getData = getWishFromLocalStorage(); // getfrom
         // if (getData.length > 0) {
         //     const findBook = getData.find(item => item.id == idInt)
@@ -29,7 +30,7 @@ const BookDetails = () => {
         //         }
         //     }
         // }
-        saveWishToLocalStorage(singleBook)
+        saveWishToLocalStorage(book)
     }
 
     const allBooks = useLoaderData();
@@ -93,8 +94,8 @@ const BookDetails = () => {
                     </div>
 
                     <div className="flex gap-5">
-                        <button className="btn" onClick={handleReadList}>Read</button>
-                        <button className="btn bg-[#50B1C9]" onClick={handleWishlist}>Wishlist</button>
+                        <button className="btn" onClick={() => handleReadList(singleBook)}>Read</button>
+                        <button className="btn bg-[#50B1C9]" onClick={() => handleWishlist(singleBook)}>Wishlist</button>
                     </div>
 
                 </div>

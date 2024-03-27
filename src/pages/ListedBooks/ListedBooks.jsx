@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import { Link, useLoaderData } from "react-router-dom";
-import { getFromLocalStorage, getWishFromLocalStorage } from "../../utils/localStorage";
+// import { getWishFromLocalStorage } from "../../utils/localStorage";
 
 import { CiLocationOn } from "react-icons/ci";
 import { LuUsers2 } from "react-icons/lu";
@@ -13,40 +13,40 @@ const ListedBooks = () => {
 
   const allBooks = useLoaderData()
 
-  useEffect(() => {
-    const storedLocalData = getFromLocalStorage();
+  // useEffect(() => {
+  //   const storedLocalData = getFromLocalStorage();
 
-    if (allBooks.length > 0) {
-      const booksApplied = [];
-      for (const id of storedLocalData) {
-        const bookId = id.id;
-        const book = allBooks.find(book => book.id == bookId)
-        if (book) {
-          booksApplied.push(book)
-        }
-      }
-      setReadBooks(booksApplied)
-    }
-  }, [allBooks]);
+  //   if (allBooks.length > 0) {
+  //     const booksApplied = [];
+  //     for (const id of storedLocalData) {
+  //       const bookId = id.id;
+  //       const book = allBooks.find(book => book.id == bookId)
+  //       if (book) {
+  //         booksApplied.push(book)
+  //       }
+  //     }
+  //     setReadBooks(booksApplied)
+  //   }
+  // }, [allBooks]);
 
 
 
-  const [wishBooks, setWishBooks] = useState([])
+  // const [wishBooks, setWishBooks] = useState([])
 
-  useEffect(() => {
-    const storedWishData = getWishFromLocalStorage();
-    if (allBooks.length > 0) {
-      let wishApplied = [];
-      for (const id of storedWishData) {
-        const wishId = id.id;
-        const wishedBook = allBooks.find(book => book.id == wishId)
-        if (wishedBook) {
-          wishApplied.push(wishedBook);
-        }
-        setWishBooks(wishApplied)
-      }
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedWishData = getWishFromLocalStorage();
+  //   if (allBooks.length > 0) {
+  //     let wishApplied = [];
+  //     for (const id of storedWishData) {
+  //       const wishId = id.id;
+  //       const wishedBook = allBooks.find(book => book.id == wishId)
+  //       if (wishedBook) {
+  //         wishApplied.push(wishedBook);
+  //       }
+  //       setWishBooks(wishApplied)
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div>
