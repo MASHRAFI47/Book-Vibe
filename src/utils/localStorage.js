@@ -6,7 +6,7 @@ export const saveWishToLocalStorage = (data) => {
         localStorage.setItem('wishlist', JSON.stringify(anotherData));
         alert('added successfully')
     } else {
-        // alert('already added to read books list')
+        alert('already added to read books list')
     }
 }
 

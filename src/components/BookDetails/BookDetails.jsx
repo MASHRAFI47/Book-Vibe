@@ -19,16 +19,16 @@ const BookDetails = () => {
 
     }
     const handleWishlist = () => {
-        const getData = getWishFromLocalStorage(); // getfrom
-        if (getData.length > 0) {
-            const findBook = getData.find(item => item.id == idInt)
-            const bookName = findBook.bookName;
-            for (const id of getData) {
-                if (bookName == id.bookName) {
-                    alert('already added')
-                }
-            }
-        }
+        // const getData = getWishFromLocalStorage(); // getfrom
+        // if (getData.length > 0) {
+        //     const findBook = getData.find(item => item.id == idInt)
+        //     const bookName = findBook.bookName;
+        //     for (const id of getData) {
+        //         if (bookName == id.bookName) {
+        //             alert('already added')
+        //         }
+        //     }
+        // }
         saveWishToLocalStorage(singleBook)
     }
 
