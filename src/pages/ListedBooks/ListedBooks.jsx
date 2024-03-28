@@ -23,6 +23,11 @@ const ListedBooks = () => {
   // test
   const [booking, setBooking] = useState(localReadData)
   const [wishing, setWishing] = useState(localWishData)
+
+
+  //
+  const [sortData, setSortData] = useState(localWishData)
+  const [order, setOrder] = useState("rating")
   
   useEffect(() => {
     fetch('books.json')
@@ -69,16 +74,23 @@ const ListedBooks = () => {
       }
 
 
-      wishBookLists.sort((a, b) =>
-        b.rating - a.rating
-      )
-      setWishBookLists(wishBookLists)
-      // second test
-      let newData = [...wishing];
-      if (newData.length > 0) {
-        let result = newData.sort((a, b) => a.bookName.localeCompare(b.bookName))
-        setWishing(result)
-      }
+      const sorted = [...sortData].sort((a,b) => 
+        a.rating < b.rating ? 1 : -1 
+      );
+      setSortData(sorted)
+      setOrder("DSC")
+      console.log(sorted)
+
+      // wishBookLists.sort((a, b) =>
+      //   b.rating - a.rating
+      // )
+      // setWishBookLists(wishBookLists)
+      // // second test
+      // let newData = [...wishing];
+      // if (newData.length > 0) {
+      //   let result = newData.sort((a, b) => a.bookName.localeCompare(b.bookName))
+      //   setWishing(result)
+      // }
     }
 
     else if (filter == 'number-of-pages') {
@@ -95,6 +107,15 @@ const ListedBooks = () => {
         setBooking(result)
       }
 
+
+      //wishlist
+      const sorted = [...sortData].sort((a,b) => 
+        a.totalPages < b.totalPages ? 1 : -1 
+      );
+      setSortData(sorted)
+      setOrder("DSC")
+      console.log(sorted)
+
     }
     else if (filter == 'published-year') {
       toast('published year')
@@ -109,6 +130,16 @@ const ListedBooks = () => {
         let result = data.sort((a, b) => a.bookName.localeCompare(b.bookName))
         setBooking(result)
       }
+
+      
+      //wishlist
+      const sorted = [...sortData].sort((a,b) => 
+        a.yearOfPublishing < b.yearOfPublishing ? 1 : -1 
+      );
+      setSortData(sorted)
+      setOrder("DSC")
+      console.log(sorted)
+      
     }
   }
 
@@ -154,7 +185,7 @@ const ListedBooks = () => {
 
       {/* Tabs */}
       <div role="tablist" className="tabs tabs-lifted">
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" defaultChecked />
+        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
           <div>
             {/* readbooks list */}
@@ -224,13 +255,13 @@ const ListedBooks = () => {
 
 
 
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist" />
+        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist" onClick={() => location.reload()} defaultChecked />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
 
           {/* Wishlist */}
           <div>
             {
-              wishBooks.map((wishBook, index) => (
+              sortData.map((wishBook, index) => (
                 <div key={index} className="mb-3 border">
                   <div className="card card-side bg-base-100 shadow-xl rounded flex-col md:flex-row">
                     <img src={wishBook.image} className="w-full md:w-[20%] p-5 bg-[#1313130D]" alt="Movie" />
