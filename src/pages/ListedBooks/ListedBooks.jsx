@@ -16,10 +16,8 @@ const ListedBooks = () => {
   const localReadData = getReadFromLocalStorage()
 
 
-  const [readBooks, setReadBooks] = useState([])
  
   const [readBookLists, setReadBookLists] = useState(localReadData)
-  console.log(readBookLists)
 
 
   // test
@@ -42,7 +40,6 @@ const ListedBooks = () => {
           booksApplied.push(book)
         }
       }
-      setReadBooks(booksApplied)
     }
   }, [allBooks]);
 
@@ -137,7 +134,7 @@ const ListedBooks = () => {
 
       {/* Tabs */}
       <div role="tablist" className="tabs tabs-lifted">
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" />
+        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" defaultChecked />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
           <div>
             {readBookLists.map((readBook, index) => (
@@ -200,7 +197,7 @@ const ListedBooks = () => {
 
 
 
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist" checked />
+        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist"  />
         <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
 
           {/* Wishlist */}

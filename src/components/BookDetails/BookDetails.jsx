@@ -1,40 +1,16 @@
 import { useLoaderData, useParams } from "react-router-dom"
-import { deleteWishFromLocalStorage, getReadFromLocalStorage, saveReadToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
+import { deleteWishFromLocalStorage, saveReadToLocalStorage, saveWishToLocalStorage } from "../../utils/localStorage";
 
 const BookDetails = () => {
 
-    const readList = getReadFromLocalStorage()
-    console.log(readList)
-
-
     const handleReadList = (book) => {
-        deleteWishFromLocalStorage(book)
         saveReadToLocalStorage(book)
-
-
-        // }
-        // saveToLocalStorage(singleBook);
-
-        // const otherWishes = wishList.filter(item => item.id != idInt)
-        // console.log(otherWishes)
-        // saveWishToLocalStorage(otherWishes)
-
-
+        deleteWishFromLocalStorage(book)
     }
+
+
     const handleWishlist = (book) => {
-        // const getData = getWishFromLocalStorage(); // getfrom
-        // if (getData.length > 0) {
-        //     const findBook = getData.find(item => item.id == idInt)
-        //     const bookName = findBook.bookName;
-        //     for (const id of getData) {
-        //         if (bookName == id.bookName) {
-        //             alert('already added')
-        //         }
-        //     }
-        // }
-
         saveWishToLocalStorage(book)
-
     }
 
     const allBooks = useLoaderData();
@@ -43,15 +19,6 @@ const BookDetails = () => {
     const singleBook = allBooks.find(book => book.id == idInt);
     const { image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing } = singleBook
 
-
-    //verify
-    // if (readList.length > 0) {
-    //     const readItem = readList.find(item => item.id == idInt)
-    //     const wishItem = wishList.find(item => item.id == idInt)
-    //     if (wishItem.bookName == readItem.bookName) {
-    //         console.log('milse')
-    //     }
-    // }
 
     return (
         <div className="mt-10">
