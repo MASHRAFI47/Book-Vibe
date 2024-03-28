@@ -11,6 +11,12 @@ const Header = () => {
         <li className="lg:mr-3"><NavLink to={'/pages-to-read'} className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-[#23BE0A] border-solid border-[#23BE0A] border-2" : ""
         }>Pages to Read</NavLink></li>
+        <li className="lg:mr-3"><NavLink to={'/about'} className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#23BE0A] border-solid border-[#23BE0A] border-2" : ""
+        }>About</NavLink></li>
+        <li className="lg:mr-3"><NavLink to={'/faqs'} className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-[#23BE0A] border-solid border-[#23BE0A] border-2" : ""
+        }>Faqs</NavLink></li>
     </>
     return (
         <nav>

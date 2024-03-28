@@ -21,7 +21,7 @@ const BookDetails = () => {
 
 
     return (
-        <div className="mt-10">
+        <div className="mt-10 mb-5">
             <div className="flex flex-col md:flex-row">
                 <div className="flex-1">
                     <img src={image} className="h-[90%] w-4/5 mx-auto rounded-lg" alt={bookName} />
@@ -64,9 +64,9 @@ const BookDetails = () => {
                         </div>
                     </div>
 
-                    <div className="flex gap-5">
+                    <div className="flex gap-5 mt-2">
                         <button className="btn" onClick={() => handleReadList(singleBook)}>Read</button>
-                        <button className="btn bg-[#50B1C9]" onClick={() => handleWishlist(singleBook)}>Wishlist</button>
+                        <button className="btn bg-[#50B1C9] text-white" onClick={() => handleWishlist(singleBook)}>Wishlist</button>
                     </div>
 
                 </div>
