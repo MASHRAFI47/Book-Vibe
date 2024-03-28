@@ -24,9 +24,9 @@ const BookDetails = () => {
         <div className="mt-10">
             <div className="flex flex-col md:flex-row">
                 <div className="flex-1">
-                    <img src={image} className="min-h-screen" alt={bookName} />
+                    <img src={image} className="h-[90%] w-4/5 mx-auto rounded-lg" alt={bookName} />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 p-4 md:p-0">
                     <h1 className="font-playfair text-2xl md:text-4xl font-bold">{bookName}</h1>
                     <p className="my-3 font-medium">By: {author}</p>
                     <div className='border-solid border-y-2 border-[#13131326]'>

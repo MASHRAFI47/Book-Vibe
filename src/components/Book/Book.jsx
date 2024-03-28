@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 const Book = ({ book }) => {
     const { id, image, category, bookName, author, tags, rating } = book
     return (
-        <div className='p-5 border border-[#13131326] rounded-xl'>
+        <div className='p-4 border border-[#13131326] rounded-xl'>
             <Link to={`/book-details/${id}`}>
                 <div className="card bg-base-100 shadow-xl">
-                    <figure className='bg-[#F3F3F3] p-5'><img src={image} alt="Shoes" /></figure>
+                    <figure className='bg-[#F3F3F3] p-4'><img src={image} className='md:h-[20rem] w-full rounded-md' alt="Shoes" /></figure>
                     <div className="card-body">
                         <div className='flex gap-5'>
                             {

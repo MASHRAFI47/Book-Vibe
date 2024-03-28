@@ -37,7 +37,7 @@
         "id": 3,
         "bookName": "To Kill a Mockingbird",
         "author": "Harper Lee",
-        "image": "https://i.ibb.co/dKxR3Kn/thirdbook.jpg",
+        "image": "https://i.ibb.co/vYC2zX2/thirdboook.jpg",
         "review": "To Kill a Mockingbird is a timeless and powerful novel that addresses themes of racial injustice, moral growth, and empathy. Harper Lee's poignant narrative unfolds through the innocent eyes of Scout Finch, a young girl growing up in the racially segregated South. The story revolves around the trial of Tom Robinson, a black man falsely accused of raping a white woman, and the moral integrity of lawyer Atticus Finch, Scout's father, who defends him. Through compelling characters and evocative storytelling, Lee challenges societal norms and prejudices, urging readers to confront the complexities of human nature and strive for justice and compassion.",
         "totalPages": 281,
         "rating": 4.8,
@@ -60,8 +60,8 @@
         "rating": 4.4,
         "category": "Fiction",
         "tags": [
-            "Coming-of-Age",
-            "American Literature"
+            "History",
+            "Literature"
         ],
         "publisher": "Little, Brown and Company",
         "yearOfPublishing": 1951,
