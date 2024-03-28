@@ -59,7 +59,6 @@ const ListedBooks = () => {
 
   const handleSort = (filter) => {
     if (filter == 'rating') {
-      toast('rating')
 
       readBookLists.sort((a, b) =>
         b.rating - a.rating
@@ -94,7 +93,6 @@ const ListedBooks = () => {
     }
 
     else if (filter == 'number-of-pages') {
-      toast('number of pages')
       readBookLists.sort((a, b) =>
         b.totalPages - a.totalPages
       )
@@ -118,7 +116,6 @@ const ListedBooks = () => {
 
     }
     else if (filter == 'published-year') {
-      toast('published year')
       readBookLists.sort((a, b) =>
         b.yearOfPublishing - a.yearOfPublishing
       )

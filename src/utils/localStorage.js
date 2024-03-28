@@ -21,9 +21,9 @@ export const saveWishToLocalStorage = (data) => {
 
     if (existingRead) {
         if(isExist) {
-            toast('already added to wishlist')
+            toast.error('already added to wishlist')
         }
-        toast('You have already read this book')
+        toast.error('You have already read this book')
     }
     else {
         if(!isExist) {
@@ -31,7 +31,7 @@ export const saveWishToLocalStorage = (data) => {
             localStorage.setItem('wishlist', JSON.stringify(saveWish));
             toast('Successfully added to wishlist')
         } else {
-            toast('you already added this to wishlist')
+            toast.error('You already added this to wishlist')
         }
         
     }
@@ -61,7 +61,7 @@ export const saveReadToLocalStorage = (data) => {
     const isExist = saveRead.find(w => w.id == data.id);
     console.log(isExist)
     if (isExist) {
-        toast('You have already read this book')
+        toast.error('You have already read this book')
     }
     else {
         saveRead.push(data);
@@ -74,7 +74,7 @@ export const deleteReadFromLocalStorage = (id) => {
     let readlist = getReadFromLocalStorage();
     const remaining = readlist.filter(d => d.id != id.id);
     localStorage.setItem('wishlist', JSON.stringify(remaining));
-    toast('deleted read')
+    toast.error('deleted read')
 }
 
 
